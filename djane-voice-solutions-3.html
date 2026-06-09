@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Djane Voice Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF6F0;
+    --warm-white: #FFF9F2;
+    --gold: #C9A96E;
+    --gold-light: #E8D5B0;
+    --deep: #2C2416;
+    --brown: #6B4F2E;
+    --brown-mid: #9C7A52;
+    --text: #3D2E1E;
+    --text-light: #7A6248;
+    --accent: #B85C38;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(250, 246, 240, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--gold-light);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--deep);
+    letter-spacing: 0.03em;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  nav ul {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  nav ul a {
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    font-weight: 700;
+    transition: color 0.2s;
+  }
+
+  nav ul a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold) !important;
+    color: white !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2px;
+  }
+
+  .nav-cta:hover { background: var(--brown) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -150px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,169,110,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(184,92,56,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-content {
+    max-width: 640px;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.9s ease both;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 32px; height: 1px;
+    background: var(--gold);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.15;
+    color: var(--deep);
+    margin-bottom: 1.5rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--brown);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: var(--text-light);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--deep);
+    color: var(--cream);
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    border: 1.5px solid var(--gold);
+    color: var(--brown);
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    background: var(--gold);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .hero-image-block {
+    position: absolute;
+    right: 4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 380px;
+    height: 480px;
+    animation: fadeIn 1.2s ease 0.3s both;
+  }
+
+  .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--brown-mid) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .photo-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(255,255,255,0.05) 10px,
+      rgba(255,255,255,0.05) 20px
+    );
+  }
+
+  .photo-placeholder-icon {
+    font-size: 4rem;
+    opacity: 0.5;
+  }
+
+  .photo-placeholder p {
+    color: white;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    font-weight: 700;
+  }
+
+  .photo-frame {
+    position: absolute;
+    top: -12px; left: -12px;
+    right: 12px; bottom: 12px;
+    border: 2px solid var(--gold);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* TRUST BAR */
+  .trust-bar {
+    background: var(--deep);
+    padding: 1.2rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    color: var(--gold-light);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .trust-item::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 0.6rem;
+  }
+
+  /* SECTION SHARED */
+  section { padding: 6rem 4rem; }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 1px;
+    background: var(--gold);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    color: var(--deep);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  /* ABOUT */
+  .about {
+    background: var(--warm-white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--text-light);
+    font-weight: 300;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-text p strong {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .stat-box {
+    padding: 2rem;
+    border: 1px solid var(--gold-light);
+    background: var(--cream);
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .stat-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(44,36,22,0.08);
+  }
+
+  .stat-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--gold);
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--deep);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  /* SERVICES */
+  .services { background: var(--cream); }
+
+  .services-intro {
+    max-width: 560px;
+    margin-bottom: 3.5rem;
+  }
+
+  .services-intro p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--text-light);
+    font-weight: 300;
+    margin-top: 0.8rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--gold-light);
+  }
+
+  .service-card {
+    background: var(--cream);
+    padding: 2.5rem;
+    transition: background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card:hover { background: var(--warm-white); }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--gold);
+    transition: width 0.4s ease;
+  }
+
+  .service-card:hover::after { width: 100%; }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--deep);
+    margin-bottom: 0.8rem;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    font-weight: 300;
+  }
+
+  /* PROCESS */
+  .process {
+    background: var(--deep);
+    color: var(--cream);
+  }
+
+  .process .section-label { color: var(--gold); }
+  .process h2 { color: var(--cream); }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .step {
+    position: relative;
+    padding-top: 1rem;
+  }
+
+  .step::before {
+    content: '';
+    position: absolute;
+    top: 2.2rem; right: -1rem;
+    width: calc(100% - 3rem);
+    height: 1px;
+    background: rgba(201,169,110,0.3);
+  }
+
+  .step:last-child::before { display: none; }
+
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--gold);
+    opacity: 0.4;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .step h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--cream);
+    margin-bottom: 0.6rem;
+  }
+
+  .step p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(250,246,240,0.6);
+    font-weight: 300;
+  }
+
+  /* DEMO */
+  .demo-section {
+    background: var(--warm-white);
+    text-align: center;
+  }
+
+  .demo-section .section-label {
+    justify-content: center;
+  }
+
+  .demo-section .section-label::before { display: none; }
+
+  .demo-section h2 { text-align: center; margin-bottom: 0.5rem; }
+
+  .demo-note {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .demo-placeholder {
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    background: var(--cream);
+    border: 2px dashed var(--gold-light);
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .demo-placeholder p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .audio-icon { font-size: 2.5rem; color: var(--gold); }
+
+  .fake-player {
+    width: 100%;
+    max-width: 400px;
+    background: var(--deep);
+    border-radius: 4px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .play-btn {
+    width: 36px; height: 36px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem;
+    color: white;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+
+  .play-btn:hover { background: var(--accent); }
+
+  .waveform {
+    flex: 1;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .wave-bar {
+    width: 3px;
+    background: rgba(201,169,110,0.5);
+    border-radius: 2px;
+    animation: wave 1.4s ease-in-out infinite;
+  }
+
+  .wave-bar:nth-child(1)  { height: 40%; animation-delay: 0s; }
+  .wave-bar:nth-child(2)  { height: 70%; animation-delay: 0.1s; }
+  .wave-bar:nth-child(3)  { height: 55%; animation-delay: 0.2s; }
+  .wave-bar:nth-child(4)  { height: 85%; animation-delay: 0.3s; }
+  .wave-bar:nth-child(5)  { height: 60%; animation-delay: 0.4s; }
+  .wave-bar:nth-child(6)  { height: 45%; animation-delay: 0.5s; }
+  .wave-bar:nth-child(7)  { height: 75%; animation-delay: 0.6s; }
+  .wave-bar:nth-child(8)  { height: 50%; animation-delay: 0.7s; }
+  .wave-bar:nth-child(9)  { height: 90%; animation-delay: 0.8s; }
+  .wave-bar:nth-child(10) { height: 65%; animation-delay: 0.9s; }
+  .wave-bar:nth-child(11) { height: 40%; animation-delay: 1.0s; }
+  .wave-bar:nth-child(12) { height: 80%; animation-delay: 1.1s; }
+  .wave-bar:nth-child(13) { height: 55%; animation-delay: 1.2s; }
+  .wave-bar:nth-child(14) { height: 70%; animation-delay: 1.3s; }
+  .wave-bar:nth-child(15) { height: 45%; animation-delay: 0.05s; }
+  .wave-bar:nth-child(16) { height: 60%; animation-delay: 0.15s; }
+
+  @keyframes wave {
+    0%, 100% { transform: scaleY(1); opacity: 0.5; }
+    50% { transform: scaleY(1.4); opacity: 1; }
+  }
+
+  .time-label { color: rgba(250,246,240,0.5); font-size: 0.75rem; flex-shrink: 0; }
+
+  /* MORE SERVICES */
+  .more-services {
+    background: var(--deep);
+    padding: 6rem 4rem;
+  }
+
+  .more-services-intro {
+    max-width: 600px;
+    margin-bottom: 3.5rem;
+  }
+
+  .more-services .section-label { color: var(--gold); }
+
+  .more-services h2 { color: var(--cream); margin-bottom: 1rem; }
+
+  .more-services-intro p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(250,246,240,0.6);
+    font-weight: 300;
+  }
+
+  .more-services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .ms-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,169,110,0.2);
+    padding: 2.2rem;
+    transition: background 0.3s, border-color 0.3s, transform 0.25s;
+  }
+
+  .ms-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+
+  .ms-card-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .ms-icon { font-size: 1.8rem; }
+
+  .ms-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--cream);
+  }
+
+  .ms-card > p {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: rgba(250,246,240,0.55);
+    font-weight: 300;
+    margin-bottom: 1.2rem;
+  }
+
+  .ms-list {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .ms-list li {
+    font-size: 0.83rem;
+    color: rgba(250,246,240,0.5);
+    padding-left: 1.2rem;
+    position: relative;
+    font-weight: 300;
+  }
+
+  .ms-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.7rem;
+  }
+
+  .ms-link {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--gold);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .ms-link:hover { color: var(--gold-light); }
+
+  .ms-cta-bar {
+    border-top: 1px solid rgba(201,169,110,0.2);
+    padding-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .ms-cta-bar p {
+    font-size: 1rem;
+    color: rgba(250,246,240,0.6);
+    font-weight: 300;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+  }
+
+  @media (max-width: 900px) {
+    .more-services-grid { grid-template-columns: 1fr; }
+    .ms-cta-bar { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* PRICING */
+  .pricing { background: var(--cream); }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .price-card {
+    border: 1px solid var(--gold-light);
+    padding: 2.5rem 2rem;
+    position: relative;
+    background: var(--warm-white);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .price-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(44,36,22,0.1);
+  }
+
+  .price-card.featured {
+    background: var(--deep);
+    border-color: var(--gold);
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: -12px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: white;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0.25rem 1rem;
+  }
+
+  .price-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--deep);
+    margin-bottom: 0.4rem;
+  }
+
+  .price-card.featured h3 { color: var(--cream); }
+
+  .price-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    line-height: 1;
+    margin: 1rem 0 0.3rem;
+  }
+
+  .price-period {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .price-card.featured .price-period { color: rgba(250,246,240,0.5); }
+
+  .price-features {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+
+  .price-features li {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--gold-light);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 300;
+  }
+
+  .price-card.featured .price-features li {
+    color: rgba(250,246,240,0.7);
+    border-color: rgba(201,169,110,0.2);
+  }
+
+  .price-features li::before {
+    content: '✓';
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .price-card .btn-primary {
+    display: block;
+    text-align: center;
+    background: var(--deep);
+  }
+
+  .price-card.featured .btn-primary {
+    background: var(--gold);
+  }
+
+  /* CONTACT */
+  .contact {
+    background: var(--warm-white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-info p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+  }
+
+  .contact-item-icon {
+    width: 40px; height: 40px;
+    background: var(--gold-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    font-weight: 700;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.85rem 1rem;
+    border: 1.5px solid var(--gold-light);
+    background: var(--cream);
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .submit-btn {
+    background: var(--deep);
+    color: var(--cream);
+    border: none;
+    padding: 1rem 2rem;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    align-self: flex-start;
+  }
+
+  .submit-btn:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--deep);
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--cream);
+  }
+
+  .footer-logo span { color: var(--gold); }
+
+  footer p {
+    font-size: 0.78rem;
+    color: rgba(250,246,240,0.4);
+    letter-spacing: 0.06em;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    font-size: 0.78rem;
+    color: rgba(250,246,240,0.5);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    nav ul { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 4rem; min-height: auto; }
+    .hero-image-block { display: none; }
+    .about, .contact { grid-template-columns: 1fr; gap: 2.5rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .step::before { display: none; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .trust-bar { padding: 1rem 1.5rem; gap: 1.5rem; }
+    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Djane <span>Voice</span> Solutions</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#demos">Demos</a></li>
+    <li><a href="#more-services">More Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Professional Voice &amp; Phone Solutions</div>
+    <h1>Your business deserves a <em>voice</em> that makes an impression.</h1>
+    <p class="hero-sub">From voicemail greetings to full phone system management — I help small businesses sound polished, professional, and unforgettable from the very first ring.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Let's Work Together</a>
+      <a href="#demos" class="btn-secondary">Hear My Voice</a>
+    </div>
+  </div>
+  <div class="hero-image-block">
+    <div class="photo-placeholder">
+      <span class="photo-placeholder-icon">🎙️</span>
+      <p>Photo Coming Soon</p>
+    </div>
+    <div class="photo-frame"></div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">Professional Studio Quality</div>
+  <div class="trust-item">Fast Turnaround</div>
+  <div class="trust-item">Full System Management</div>
+  <div class="trust-item">Warm &amp; Clear Delivery</div>
+  <div class="trust-item">Satisfaction Guaranteed</div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-text">
+    <div class="section-label">About Djane</div>
+    <h2>More than a voice — a complete solution.</h2>
+    <p>I'm Djane, and I've been helping businesses sound their best over the phone for years. What sets me apart isn't just <strong>the quality of my voice</strong> — it's that I handle everything from scripting to recording to setting up your phone system.</p>
+    <p>You shouldn't have to juggle three different vendors to get a professional phone presence. With me, you get <strong>one trusted partner</strong> who understands your brand, knows your system, and delivers results you're proud to share with every caller.</p>
+    <a href="#contact" class="btn-primary" style="margin-top:1rem;">Work With Me</a>
+  </div>
+  <div class="about-stats">
+    <div class="stat-box">
+      <div class="stat-number">500+</div>
+      <div class="stat-label">Clients Served</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">5★</div>
+      <div class="stat-label">Client Satisfaction</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">24hr</div>
+      <div class="stat-label">Avg. Turnaround</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">All-in-1</div>
+      <div class="stat-label">Voice + Systems</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-intro">
+    <div class="section-label">What I Offer</div>
+    <h2>Everything your business needs to sound professional.</h2>
+    <p>From a single greeting to a fully managed phone system — I've got you covered.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">📞</span>
+      <h3>Voicemail Greetings</h3>
+      <p>Warm, professional voicemail recordings tailored to your brand voice. First impressions matter — make yours count every single time.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🎵</span>
+      <h3>On-Hold Messages</h3>
+      <p>Keep callers engaged while they wait. I create custom on-hold audio that reinforces your brand and shares what matters most to your customers.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">📋</span>
+      <h3>Auto-Attendant &amp; IVR</h3>
+      <p>Professional menu recordings for your phone system. Clear, friendly, and intuitive — so callers always know exactly where to go.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">⚙️</span>
+      <h3>Phone System Management</h3>
+      <p>I don't just record — I set it all up. From RingCentral to Grasshopper, I manage your system so you don't have to think about it.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">✍️</span>
+      <h3>Script Writing</h3>
+      <p>Not sure what to say? I'll craft a professional script that sounds natural, captures your tone, and communicates clearly to your callers.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🔄</span>
+      <h3>Seasonal Updates</h3>
+      <p>Holiday hours, special announcements, and regular refreshes — I keep your phone presence current so you never sound out of date.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="section-label">How It Works</div>
+  <h2>Simple, smooth, and stress-free.</h2>
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h4>We Connect</h4>
+      <p>Tell me about your business, your brand, and what you need. I'll ask the right questions to fully understand your vision.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h4>Script &amp; Plan</h4>
+      <p>I write or refine your script and map out exactly what recordings and system changes are needed — no surprises.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h4>Record &amp; Deliver</h4>
+      <p>Professional studio-quality recordings delivered fast — typically within 24 hours. Revisions included until you're happy.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h4>Set Up &amp; Done</h4>
+      <p>I upload everything directly into your phone system and test it. You just answer the phone and enjoy the results.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="demo-section" id="demos">
+  <div class="section-label">Voice Demos</div>
+  <h2>Hear the difference.</h2>
+  <p class="demo-note">Sample recordings coming soon — contact me to request a custom demo for your business.</p>
+  <div class="demo-placeholder">
+    <div class="audio-icon">🎙️</div>
+    <p>Demo Recordings Coming Soon</p>
+    <div class="fake-player">
+      <button class="play-btn">▶</button>
+      <div class="waveform">
+        <div class="wave-bar"></div><div class="wave-bar"></div>
+        <div class="wave-bar"></div><div class="wave-bar"></div>
+        <div class="wave-bar"></div><div class="wave-bar"></div>
+        <div class="wave-bar"></div><div class="wave-bar"></div>
+        <div class="wave-bar"></div><div class="wave-bar"></div>
+        <div class="wave-bar"></div><div class="wave-bar"></div>
+        <div class="wave-bar"></div><div class="wave-bar"></div>
+        <div class="wave-bar"></div><div class="wave-bar"></div>
+      </div>
+      <span class="time-label">0:00</span>
+    </div>
+  </div>
+</section>
+
+<!-- MORE SERVICES -->
+<section class="more-services" id="more-services">
+  <div class="more-services-intro">
+    <div class="section-label">Beyond the Mic</div>
+    <h2>I bring more to the table than just my voice.</h2>
+    <p>Need extra hands for your business? I've spent years supporting entrepreneurs and small teams as a trusted behind-the-scenes partner. Here's what else I can do for you.</p>
+  </div>
+  <div class="more-services-grid">
+    <div class="ms-card">
+      <div class="ms-card-top">
+        <span class="ms-icon">🎓</span>
+        <h3>E-Learning Voiceover</h3>
+      </div>
+      <p>Clear, engaging narration for online courses, training modules, and educational content. I deliver warm, easy-to-follow recordings that keep learners focused and your content sounding credible.</p>
+      <ul class="ms-list">
+        <li>Course &amp; module narration</li>
+        <li>Corporate training content</li>
+        <li>Tutorial &amp; how-to recordings</li>
+        <li>LMS-ready audio files</li>
+      </ul>
+      <a href="#contact" class="ms-link">Inquire About This →</a>
+    </div>
+    <div class="ms-card">
+      <div class="ms-card-top">
+        <span class="ms-icon">🗂️</span>
+        <h3>Virtual Assistant &amp; Admin</h3>
+      </div>
+      <p>Reliable, detail-oriented administrative support so you can focus on what matters. Whether it's a one-time project or ongoing help, I keep things organized and moving.</p>
+      <ul class="ms-list">
+        <li>Email management &amp; inbox organization</li>
+        <li>Document preparation &amp; formatting</li>
+        <li>Research &amp; data compilation</li>
+        <li>General administrative tasks</li>
+      </ul>
+      <a href="#contact" class="ms-link">Inquire About This →</a>
+    </div>
+    <div class="ms-card">
+      <div class="ms-card-top">
+        <span class="ms-icon">🤝</span>
+        <h3>Customer Service Support</h3>
+      </div>
+      <p>Professional, friendly customer-facing support that reflects well on your brand. I handle client communication with care, patience, and a genuine desire to help.</p>
+      <ul class="ms-list">
+        <li>Email &amp; chat response handling</li>
+        <li>Customer inquiry management</li>
+        <li>Follow-up &amp; satisfaction check-ins</li>
+        <li>Issue resolution support</li>
+      </ul>
+      <a href="#contact" class="ms-link">Inquire About This →</a>
+    </div>
+    <div class="ms-card">
+      <div class="ms-card-top">
+        <span class="ms-icon">📅</span>
+        <h3>Scheduling &amp; Calendar Management</h3>
+      </div>
+      <p>Never miss a meeting or double-book again. I manage your calendar so your time is protected, your appointments run smoothly, and your day makes sense.</p>
+      <ul class="ms-list">
+        <li>Appointment booking &amp; coordination</li>
+        <li>Meeting prep &amp; reminders</li>
+        <li>Calendar organization &amp; cleanup</li>
+        <li>Time zone &amp; travel coordination</li>
+      </ul>
+      <a href="#contact" class="ms-link">Inquire About This →</a>
+    </div>
+  </div>
+  <div class="ms-cta-bar">
+    <p>Have something else in mind? I'm flexible and love a good challenge.</p>
+    <a href="#contact" class="btn-primary">Let's Talk About Your Needs</a>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-label">Investment</div>
+  <h2>Straightforward pricing, no surprises.</h2>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <h3>Starter</h3>
+      <p style="font-size:0.85rem;color:var(--text-light);font-weight:300;">Perfect for a single recording need.</p>
+      <div class="price-amount">$50</div>
+      <div class="price-period">one-time</div>
+      <ul class="price-features">
+        <li>1 professional recording</li>
+        <li>Script writing included</li>
+        <li>24-hr turnaround</li>
+        <li>1 revision round</li>
+        <li>MP3 &amp; WAV delivery</li>
+      </ul>
+      <a href="#contact" class="btn-primary">Get Started</a>
+    </div>
+    <div class="price-card featured">
+      <div class="featured-badge">Most Popular</div>
+      <h3>Business Package</h3>
+      <p style="font-size:0.85rem;color:rgba(250,246,240,0.5);font-weight:300;">Full voice + system setup.</p>
+      <div class="price-amount">$150</div>
+      <div class="price-period">one-time setup</div>
+      <ul class="price-features">
+        <li>Up to 5 recordings</li>
+        <li>Script writing included</li>
+        <li>Phone system setup</li>
+        <li>Revisions until project is complete</li>
+        <li>Priority turnaround</li>
+      </ul>
+      <a href="#contact" class="btn-primary">Get Started</a>
+    </div>
+    <div class="price-card">
+      <h3>Managed Monthly</h3>
+      <p style="font-size:0.85rem;color:var(--text-light);font-weight:300;">Ongoing updates &amp; management.</p>
+      <div class="price-amount">$150</div>
+      <div class="price-period">per month</div>
+      <ul class="price-features">
+        <li>Quarterly recording updates</li>
+        <li>Holiday &amp; seasonal greetings</li>
+        <li>System monitoring</li>
+        <li>Priority support</li>
+        <li>Script writing included</li>
+      </ul>
+      <a href="#contact" class="btn-primary">Get Started</a>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:1.5rem;font-size:0.85rem;color:var(--text-light);font-weight:300;">Custom packages available for larger needs. <a href="#contact" style="color:var(--gold);">Let's talk.</a></p>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-info">
+    <div class="section-label">Get In Touch</div>
+    <h2>Ready to sound your best?</h2>
+    <p>Whether you know exactly what you need or you're just exploring options, I'd love to hear from you. Every project starts with a simple conversation.</p>
+    <div class="contact-details">
+      <div class="contact-item">
+        <div class="contact-item-icon">📧</div>
+        <span>hello@djanevoicesolutions.com</span>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">⏱️</div>
+        <span>Typical response within 24 hours</span>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">🎙️</div>
+        <span>Free consultation call available</span>
+      </div>
+    </div>
+  </div>
+  <div class="contact-form">
+    <div id="form-success" style="display:none; background:#e8f5e9; border:1px solid #C9A96E; padding:1.5rem; margin-bottom:1rem;">
+      <p style="color:#2C2416; font-weight:700;">✅ Message sent! I'll be in touch within 24 hours.</p>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" id="firstName" placeholder="Jane" required>
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" id="lastName" placeholder="Smith" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Business Name</label>
+      <input type="text" id="businessName" placeholder="Your Company LLC">
+    </div>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" id="email" placeholder="jane@yourcompany.com" required>
+    </div>
+    <div class="form-group">
+      <label>Service Needed</label>
+      <select id="service">
+        <option value="">Select a service...</option>
+        <option>Voicemail Greeting</option>
+        <option>On-Hold Message</option>
+        <option>Auto-Attendant / IVR</option>
+        <option>Phone System Setup</option>
+        <option>Script Writing</option>
+        <option>Managed Monthly Package</option>
+        <option>E-Learning Voiceover</option>
+        <option>Virtual Assistant / Admin Support</option>
+        <option>Customer Service Support</option>
+        <option>Scheduling & Calendar Management</option>
+        <option>Not sure yet</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Tell Me About Your Project</label>
+      <textarea id="message" placeholder="What does your business do? What do you need? Any details help..." required></textarea>
+    </div>
+    <button class="submit-btn" onclick="submitForm()">Send Message →</button>
+  </div>
+
+  <script>
+    async function submitForm() {
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const email = document.getElementById('email').value;
+      const businessName = document.getElementById('businessName').value;
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value;
+
+      if (!firstName || !email || !message) {
+        alert('Please fill in your name, email, and project details.');
+        return;
+      }
+
+      const formData = {
+        name: firstName + ' ' + lastName,
+        email: email,
+        businessName: businessName,
+        service: service,
+        message: message
+      };
+
+      try {
+        const response = await fetch('https://formspree.io/f/mqeobkyd', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+          document.getElementById('form-success').style.display = 'block';
+          document.getElementById('firstName').value = '';
+          document.getElementById('lastName').value = '';
+          document.getElementById('email').value = '';
+          document.getElementById('businessName').value = '';
+          document.getElementById('service').value = '';
+          document.getElementById('message').value = '';
+        } else {
+          alert('Something went wrong. Please email me directly at hello@djanevoicesolutions.com');
+        }
+      } catch (error) {
+        alert('Something went wrong. Please email me directly at hello@djanevoicesolutions.com');
+      }
+    }
+  </script>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Djane <span>Voice</span> Solutions</div>
+  <p>© 2026 Djane Voice Solutions. All rights reserved.</p>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
